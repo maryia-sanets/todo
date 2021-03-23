@@ -12,16 +12,20 @@ export const TodoForm = ({ onAdd }) => {
     setTitle(event.target.value);
   }
 
-  const handlerKeyDown = (event) => {
-    if(event.key === 'Enter') {
-      onAdd(title);
-      event.target.value = '';
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (title.trim()) {
+      onAdd(title.trim());
+      setTitle('');
     }
   }
 
-   return (
-    <div className={cx('form-field')}>
-      <label 
+  return (
+    <form
+      className={cx('form-field')}
+      onSubmit={submitHandler}
+    >
+      <label
         htmlFor="todo"
         className={cx('form-field-label')}
       >New todo</label>
@@ -29,10 +33,9 @@ export const TodoForm = ({ onAdd }) => {
         className={cx('form-field-input')}
         type="text"
         placeholder='Enter your todo'
-        id='todo'
+        value={title}
         onChange={handleChange}
-        onKeyDownCapture={handlerKeyDown}
       />
-    </div>
+    </form>
   );
 }

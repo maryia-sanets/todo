@@ -25,17 +25,8 @@ const toggleHandler = (id) => {
   }));
 }
 
-const editHandler = (id, title) => {
-  setTodos(prev => prev.map(todo => {
-    if(todo.id === id) {
-      return {...todo, title: title}
-    }
-    return todo;
-  }));
-}
-
 const deleteHandler = (id) => {
-  setTodos(prev => prev.filter(todo => todo.id !== id));
+  setTodos(prev => [...prev].filter(todo => todo.id !== id));
 }
 
   return (
@@ -46,7 +37,6 @@ const deleteHandler = (id) => {
       <TodoList 
         todos={todos}
         onToggle={toggleHandler}
-        onEdit={editHandler}
         onDelete={deleteHandler}
       />
     </>

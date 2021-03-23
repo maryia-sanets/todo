@@ -5,37 +5,41 @@ import styles from './TodoList.scss';
 
 const cx = classnames.bind(styles);
 
-export const TodoList = ({ todos, onToggle, onEdit, onDelete }) => {
-
-  if (todos.length === 0) {
-    return (
-      <p>
-        Your todo list is emptys
-      </p>
-    )
-  }
+export const TodoList = ({ todos, onToggle, onDelete }) => {
 
   return (
-    <ul className={cx('todo-list')}>
-      {todos.map((todo) =>
-        <li className={cx('todo-list-item')} key={todo.id}>
-          <div>
-            <input
-              className={cx('todo-list-checkbox')}
-              type='checkbox'
-              checked={todo.completed}
-              onChange={() => onToggle(todo.id)}
-            />
-            <span
-              className={cx('todo-list-title', { 'todo-list-title__checked': todo.completed })}
-            >{todo.title}</span>
-          </div>
-          <button
-            className={cx('todo-list-btn')}
-            onClick={() => onDelete(todo.id)}
-          >Delete</button>
-        </li>
-      )}
-    </ul>
+    <>
+      {
+        todos.length
+          ? (<ul className={cx('todo-list')}>
+            {todos.map((todo) => {
+
+              const { title, id, completed } = { ...todo }
+              return (
+                <li className={cx('todo-list-item')} key={id}>
+                  <div>
+                    <input
+                      className={cx('todo-list-checkbox')}
+                      type='checkbox'
+                      checked={todo.completed}
+                      onChange={() => onToggle(id)}
+                    />
+                    <span
+                      className={cx('todo-list-title', { 'todo-list-title__checked': completed })}
+                    >{title}</span>
+                  </div>
+                  <button
+                    className={cx('todo-list-btn')}
+                    onClick={() => onDelete(id)}
+                  >Delete</button>
+                </li>
+              )
+            }
+
+            )}
+          </ul>)
+          : (<p>Your todo list is emptys</p>)
+      }
+    </>
   );
 }

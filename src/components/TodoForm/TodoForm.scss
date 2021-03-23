@@ -1,3 +1,5 @@
+@import '../../styles/mail.scss';
+
 .form-field {
   width: 40%;
   padding: 5px 0px;
@@ -7,12 +9,13 @@
   &-label{
     margin: 5px 0px;
     font-weight: bold;
-    color: #2a0747;
+    color: $color-font;
   }
   &-input {
     height: 40px;
     border: none;
     border-radius: 5rem;
     padding-left: 10px;
+    outline: none;
   }
 }

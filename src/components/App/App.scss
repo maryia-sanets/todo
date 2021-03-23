@@ -1,16 +1,19 @@
+@import '../../styles/mail.scss';
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #cfdada;
+  background-color: $color-secondary;
 }
 
 .btn {
-  background-color: #8fbebe;
+  background-color: $color-primary;
   border: none;
   border-radius: 5%;
-  color: white;
+  color: $color-white;
   padding: 15px 30px;
   font-size: 16px;
   cursor: pointer;
+  outline: none;
 }

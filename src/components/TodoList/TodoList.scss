@@ -1,5 +1,6 @@
+@import '../../styles/mail.scss';
+
 .todo-list {
-  
   width: 40%;
   padding: 0;
   &-item {
@@ -27,13 +28,14 @@
   }
   &-btn {
     margin-right: 5px;
-    background-color: #8fbebe;
+    background-color: $color-primary;
     border: none;
     border-radius: 5%;
-    color: #2a0747;
+    color: $color-font;
     padding: 5px 20px;
     font-size: 12px;
     cursor: pointer;
+    outline: none;
   }
 }
 

@@ -1,13 +1,14 @@
+@import '../../styles/mail.scss';
 
 .header {
-  background-color: #8fbebe;//$color-primary;
+  background-color: $color-primary;
   height: 50px;
   display: flex;
   justify-content: space-between;
   
   &-name{
     margin: 5px 20px;
-    color: #2a0747;
+    color: $color-font;
   }
 
   &-list {
@@ -19,6 +20,10 @@
       display: inline;
       margin-left: 30px;
       font-weight: bold;
+
+      a {
+        color: $color-font;
+      }
     }
   }
  
