@@ -8,7 +8,7 @@ const cx = classnames.bind(styles);
 
 export const Header = () => {
 
-  const [links, setLinks] = useState([{ to: '/', name: 'Todos' }, { to: '/about', name: 'About' }]);
+  const [links] = useState([{ to: '/', name: 'Todos' }, { to: '/about', name: 'About' }]);
 
   return (
     <nav>

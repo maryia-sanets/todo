@@ -1,40 +1,56 @@
-import React, {useState} from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useState, useEffect } from 'react';
 
 import { TodoForm } from '../../components/TodoForm';
 import { TodoList } from '../../components/TodoList';
 
 export const TodosPage = () => {
-const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState([]);
 
-const addTodoHandler = (title) => {
-  const newTodo = {
-    title: title,
-    id: uuidv4(),
-    completed: false,
-  }
-  setTodos((prev) => [newTodo, ...prev]);
-}
-
-const toggleHandler = (id) => {
-  setTodos(prev => prev.map(todo => {
-    if(todo.id === id) {
-      return {...todo, completed: !todo.completed}
+  useEffect(() => {
+    async function fetchTodo() {
+      const response = await fetch('/todos');
+      const json = await response.json();
+      setTodos(json);
     }
-    return todo;
-  }));
-}
+    fetchTodo();
+  }, []);
 
-const deleteHandler = (id) => {
-  setTodos(prev => [...prev].filter(todo => todo.id !== id));
-}
+  const addTodoHandler = async (title) => {
+    const response = await fetch('/todos/add', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ title: title })
+
+    });
+    const json = await response.json();
+    setTodos(json);
+  }
+
+  
+  const toggleHandler = async (id) => {
+    const response = await fetch(`/todos/${id}/update`, {
+      method: 'PUT'
+    })
+    const json = await response.json();
+    setTodos(json);
+  }
+
+  const deleteHandler = async (id) => {
+    const response = await fetch(`/todos/${id}/delete`, {
+      method: 'DELETE'
+    });
+    const json = await response.json();
+    setTodos(json);
+  }
 
   return (
     <>
-      <TodoForm 
+      <TodoForm
         onAdd={addTodoHandler}
       />
-      <TodoList 
+      <TodoList
         todos={todos}
         onToggle={toggleHandler}
         onDelete={deleteHandler}
