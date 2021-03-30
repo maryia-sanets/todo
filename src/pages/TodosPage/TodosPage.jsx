@@ -28,21 +28,28 @@ export const TodosPage = () => {
     setTodos(json);
   }
 
-  
+  const handleResponse = async(response) => {
+    if (response.ok) {
+      const json = await response.json();
+      setTodos(json);
+    } else {
+      const error = await response.json();
+      alert(error.message);
+    }
+  }
+
   const toggleHandler = async (id) => {
     const response = await fetch(`/todos/${id}/update`, {
       method: 'PUT'
-    })
-    const json = await response.json();
-    setTodos(json);
+    });
+    handleResponse(response);
   }
 
   const deleteHandler = async (id) => {
     const response = await fetch(`/todos/${id}/delete`, {
       method: 'DELETE'
     });
-    const json = await response.json();
-    setTodos(json);
+    handleResponse(response);
   }
 
   return (
