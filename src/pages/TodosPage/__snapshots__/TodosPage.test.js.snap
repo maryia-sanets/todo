@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render TodosPage after loading data from server and displaying todos 1`] = `
+<DocumentFragment>
+  <form
+    class="form-field"
+  >
+    <label
+      class="form-field-label"
+      for="todo"
+    >
+      New todo
+    </label>
+    <input
+      class="form-field-input"
+      placeholder="Enter your todo"
+      type="text"
+      value=""
+    />
+  </form>
+  <p>
+    Your todo list is empty
+  </p>
+</DocumentFragment>
+`;
+
+exports[`render TodosPage before loading data from server 1`] = `
+<DocumentFragment>
+  <form
+    class="form-field"
+  >
+    <label
+      class="form-field-label"
+      for="todo"
+    >
+      New todo
+    </label>
+    <input
+      class="form-field-input"
+      placeholder="Enter your todo"
+      type="text"
+      value=""
+    />
+  </form>
+  <p>
+    Your todo list is empty
+  </p>
+</DocumentFragment>
+`;
+
+exports[`render TodosPage before loading data from server 2`] = `
+<DocumentFragment>
+  <form
+    class="form-field"
+  >
+    <label
+      class="form-field-label"
+      for="todo"
+    >
+      New todo
+    </label>
+    <input
+      class="form-field-input"
+      placeholder="Enter your todo"
+      type="text"
+      value=""
+    />
+  </form>
+  <p>
+    Your todo list is empty
+  </p>
+</DocumentFragment>
+`;
+
+exports[`render TodosPage loading and displaying todos 1`] = `
+<DocumentFragment>
+  <form
+    class="form-field"
+  >
+    <label
+      class="form-field-label"
+      for="todo"
+    >
+      New todo
+    </label>
+    <input
+      class="form-field-input"
+      placeholder="Enter your todo"
+      type="text"
+      value=""
+    />
+  </form>
+  <p>
+    Your todo list is empty
+  </p>
+</DocumentFragment>
+`;

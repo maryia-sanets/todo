@@ -25,10 +25,7 @@ export const TodoForm = ({ onAdd }) => {
       className={cx('form-field')}
       onSubmit={submitHandler}
     >
-      <label
-        htmlFor="todo"
-        className={cx('form-field-label')}
-      >New todo</label>
+      <label htmlFor="todo" className={cx('form-field-label')}>New todo</label>
       <input
         className={cx('form-field-input')}
         type="text"

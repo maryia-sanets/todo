@@ -12,6 +12,8 @@ export const TodoList = ({ todos, onToggle, onDelete }) => {
       {
         todos.length
           ? (
+            <>
+            <h3>TodoList</h3>
             <ul className={cx('todo-list')}>
               {todos.map((todo) => {
                 const { title, id, completed } = { ...todo }
@@ -36,8 +38,9 @@ export const TodoList = ({ todos, onToggle, onDelete }) => {
                 )
               }
               )}
-            </ul>)
-          : (<p>Your todo list is emptys</p>)
+            </ul>
+            </>)
+          : (<p>Your todo list is empty</p>)
       }
     </>
   );
